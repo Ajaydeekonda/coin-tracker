@@ -10,6 +10,7 @@ const COINGECKO_URL = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin
 const fetchCryptoData = async () => {
   try {
     // Fetch data from CoinGecko API using node-fetch
+    console.log(process.env.COINGECKO_API_KEY);
     const response = await fetch(COINGECKO_URL, {
       method: 'GET',
       headers: {
