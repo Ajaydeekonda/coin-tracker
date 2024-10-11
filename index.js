@@ -13,7 +13,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Middleware to parse incoming JSON
 
 // Define routes
 app.get("/stats", getCryptoStats); // for stats get request
