@@ -1,5 +1,5 @@
 const axios = require('axios');
-const Crypto = require('../models/Crypto'); // Import the Crypto model
+const Crypto = require('../models/Crypto');
 const cron = require('node-cron');
 
 // Define the CoinGecko API URL
@@ -11,6 +11,8 @@ const fetchCryptoData = async () => {
     // Fetch data from CoinGecko API
     const response = await axios.get(COINGECKO_URL);
     const data = response.data;
+
+   // console.log(data); // comment out to check if it is getting the data from coingecko
 
     // Iterate over the cryptocurrencies to save them in MongoDB
     for (const [coinId, cryptoData] of Object.entries(data)) {
@@ -27,7 +29,7 @@ const fetchCryptoData = async () => {
 
       // Save the record to the database
       await cryptoRecord.save();
-      console.log(`Saved ${coinId} data to the database`);
+      console.log(`Saved ${coinId} data to the database`); //console log to check whether it's saved 
     }
   } catch (error) {
     console.error('Error fetching cryptocurrency data:', error);
