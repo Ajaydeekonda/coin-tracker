@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Tracker</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <h1>Coin Tracker</h1>
+    
+    <div class="input-container">
+        <input type="text" id="statsCoin" placeholder="Enter coin for stats" />
+        <button onclick="requestStats()">Stats</button>
+    </div>
+
+    <div class="input-container">
+        <input type="text" id="deviationCoin" placeholder="Enter coin for deviation" />
+        <button onclick="requestDeviation()">Deviation</button>
+    </div>
+
+    <script> 
+        function requestStats() {
+            const coin = document.getElementById('statsCoin').value;
+            const url = `https://coin-tracker-t3lf.onrender.com/stats?coin=${coin}`;
+            window.location.href = url;
+        }
+
+        function requestDeviation() {
+            const coin = document.getElementById('deviationCoin').value;
+            const url = `https://coin-tracker-t3lf.onrender.com/deviation?coin=${coin}`;
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
