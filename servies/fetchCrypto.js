@@ -4,7 +4,7 @@ const cron = require('node-cron');
 require('dotenv').config(); // Load environment variables from .env file
 
 // Define the CoinGecko API URL for the cryptocurrencies
-const COINGECKO_URL = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,matic-network&vs_currencies=usd&include_market_cap=true&include_24hr_change=true';
+const COINGECKO_URL = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,matic-network&vs_currencies=usd&include_market_cap=true&include_24hr_change=true&x_cg_demo_api_key=CG-DG7TEUCDhS9kMZbPJZC8i2iK";
 
 // Function to fetch cryptocurrency data from the CoinGecko API
 const fetchCryptoData = async () => {
@@ -15,7 +15,6 @@ const fetchCryptoData = async () => {
       method: 'GET',
       headers: {
         accept: 'application/json',
-        'x-cg-demo-api-key': process.env.COINGECKO_API_KEY // Use the API key from the .env file
       },
     });
 
