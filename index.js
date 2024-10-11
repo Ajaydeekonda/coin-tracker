@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 app.get("/stats", getCryptoStats); // for stats get request
 app.get("/deviation", getCryptoDeviation); //for deviation get request
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 // Connect to MongoDB Atlas and start the server
 connectToDatabase().then(async () => {
   await fetchCryptoData(); // Fetch data immediately on startup
