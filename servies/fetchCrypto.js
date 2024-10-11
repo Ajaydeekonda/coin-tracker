@@ -1,8 +1,9 @@
 const fetch = require('node-fetch'); // Import node-fetch
 const Crypto = require('../models/Crypto');
 const cron = require('node-cron');
+require('dotenv').config(); // Load environment variables from .env file
 
-// Define the CoinGecko API URL
+// Define the CoinGecko API URL for the cryptocurrencies
 const COINGECKO_URL = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,matic-network&vs_currencies=usd&include_market_cap=true&include_24hr_change=true';
 
 // Function to fetch cryptocurrency data from the CoinGecko API
@@ -13,6 +14,7 @@ const fetchCryptoData = async () => {
       method: 'GET',
       headers: {
         accept: 'application/json',
+        'x-cg-demo-api-key': process.env.COINGECKO_API_KEY // Use the API key from the .env file
       },
     });
 
