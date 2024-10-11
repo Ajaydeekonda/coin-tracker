@@ -3,34 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css"> <!-- Linking the external CSS file -->
     <title>Coin Tracker</title>
-    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <h1>Coin Tracker</h1>
-    
+
     <div class="input-container">
-        <input type="text" id="statsCoin" placeholder="Enter coin for stats" />
-        <button onclick="requestStats()">Stats</button>
+        <input type="text" id="statsCoin" placeholder="Enter coin for stats">
+        <button id="statsButton">Stats</button>
     </div>
 
     <div class="input-container">
-        <input type="text" id="deviationCoin" placeholder="Enter coin for deviation" />
-        <button onclick="requestDeviation()">Deviation</button>
+        <input type="text" id="deviationCoin" placeholder="Enter coin for deviation">
+        <button id="deviationButton">Deviation</button>
     </div>
 
-    <script> 
-        function requestStats() {
+    <script>
+        document.getElementById('statsButton').addEventListener('click', function() {
             const coin = document.getElementById('statsCoin').value;
-            const url = `https://coin-tracker-t3lf.onrender.com/stats?coin=${coin}`;
-            window.location.href = url;
-        }
+            if (coin) {
+                window.location.href = `/stats?coin=${coin}`;
+            } else {
+                alert('Please enter a coin for stats.');
+            }
+        });
 
-        function requestDeviation() {
+        document.getElementById('deviationButton').addEventListener('click', function() {
             const coin = document.getElementById('deviationCoin').value;
-            const url = `https://coin-tracker-t3lf.onrender.com/deviation?coin=${coin}`;
-            window.location.href = url;
-        }
+            if (coin) {
+                window.location.href = `/deviation?coin=${coin}`;
+            } else {
+                alert('Please enter a coin for deviation.');
+            }
+        });
     </script>
 </body>
 </html>
